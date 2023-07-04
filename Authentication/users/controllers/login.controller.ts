@@ -14,10 +14,7 @@ import otpService from '../../common/services/otp.services';
 
 import {Pill} from '../types/pill.type'
 import { CreateUser } from '../types/create.user.type';
-import { error } from 'console';
 import { Response } from '../../common/types/response.types';
-
-import Nodemailer from '../../common/services/mailer.services';
 
 const log: debug.IDebugger = debug('app:users-controller');
 class UsersController {

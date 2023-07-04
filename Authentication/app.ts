@@ -31,10 +31,31 @@ app.use(cors());
 
 // here we are preparing the expressWinston logging middleware configuration,
 // which will automatically log all HTTP requests handled by Express.js
+// const loggerOptions: expressWinston.LoggerOptions = {
+//     transports: [new winston.transports.Console()],
+//     format: winston.format.combine(
+//         winston.format.json(),
+//         winston.format.prettyPrint(),
+//         winston.format.colorize({ all: true })
+//     ),
+// };
+
 const loggerOptions: expressWinston.LoggerOptions = {
-    transports: [new winston.transports.Console()],
+    transports: [new winston.transports.Console(),
+        new winston.transports.File({
+            // level: 'error',
+            // Create the log directory if it does not exist
+            filename: 'Documents/Bookoto/logs/example.log'
+        })],
     format: winston.format.combine(
-        winston.format.json(),
+        // winston.format.json(),
+        winston.format.label({
+            label: `Label🏷️`
+        }),
+        winston.format.timestamp({
+           format: 'MMM-DD-YYYY HH:mm:ss'
+       }),
+        winston.format.printf(info => `${info.level}: ${info.label}: ${[info.timestamp]}: ${info.message}`),
         winston.format.prettyPrint(),
         winston.format.colorize({ all: true })
     ),

@@ -3,7 +3,7 @@ import LoginController from '../controllers/login.controller';
 import LoginMiddleware from '../middleware/login.middleware';
 import LoginValidationMiddleware from "../middleware/login.validation.middleware"
 import { Validator } from "express-json-validator-middleware";
-const { validate } = new Validator({});
+// const { validate } = new Validator({});
 import express from 'express';
 
 

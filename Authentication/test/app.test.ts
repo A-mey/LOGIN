@@ -111,11 +111,11 @@ describe('LOGIN API', function() {
     
         it('should send mail', async function(){
             try {
-                expect(Nodemailer.sendMail("amey2p@gmailcom", "Test mail", "Test")).to.be.an('object');
-                expect(Nodemailer.sendMail("amey2p@gmailcom", "Test mail", "Test")).to.have.keys(['accepted', 'rejected', 'ehlo', 'envelopeTime', 'messageTime', 'messageSize', 'response', 'envelope', 'messageId']);
-                expect(Nodemailer.sendMail("amey2p@gmailcom", "Test mail", "Test")).to.haveOwnProperty('accepted').to.equal(['amey2p@getMaxListeners.com']);
-                expect(Nodemailer.sendMail("amey2p@gmailcom", "Test mail", "Test")).to.haveOwnProperty('envelope').to.equal({ from: 'a.may3pp@gmail.com', to: [ 'amey2p@gmailcom' ] });
-                expect(Nodemailer.sendMail("amey2p@gmailcom", "Test mail", "Test")).to.haveOwnProperty('response').to.contain('250 2.0.0 OK');                
+                expect(Nodemailer.sendMail("amey2p@gmail.com", "Test mail", "Test")).to.be.an('object');
+                expect(Nodemailer.sendMail("amey2p@gmail.com", "Test mail", "Test")).to.have.keys(['accepted', 'rejected', 'ehlo', 'envelopeTime', 'messageTime', 'messageSize', 'response', 'envelope', 'messageId']);
+                expect(Nodemailer.sendMail("amey2p@gmail.com", "Test mail", "Test")).to.haveOwnProperty('accepted').to.equal(['amey2p@gmail.com']);
+                expect(Nodemailer.sendMail("amey2p@gmail.com", "Test mail", "Test")).to.haveOwnProperty('envelope').to.equal({ from: 'a.may3pp@gmail.com', to: [ 'amey2p@gmailcom' ] });
+                expect(Nodemailer.sendMail("amey2p@gmail.com", "Test mail", "Test")).to.haveOwnProperty('response').to.contain('250 2.0.0 OK');                
             }
             catch(e: any) {
                 console.log(e.message);
